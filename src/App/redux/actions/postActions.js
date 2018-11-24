@@ -13,12 +13,9 @@ import {FETCH_POSTS, NEW_POST} from './types';
 
 export const fetchPosts = () => dispatch => {
     console.log('infking redux');
-    fetch('https://expressokki.herokuapp.com/api/testitem',{
-        mode:"no-cors"
-
-    })
-        .then(res => res.json())
-        .then(list => dispatch({
+    fetch('https://expressokki.herokuapp.com/api/testitem',{mode:"no-cors"})
+    .then(res => res.json())
+    .then(list => dispatch({
             type: FETCH_POSTS,
             payload: list
         }));

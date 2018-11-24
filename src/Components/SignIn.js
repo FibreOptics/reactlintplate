@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -15,47 +15,54 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { Link } from 'react-router-dom';
 import styles from './SignInCss';
 
-function SignIn(props) {
-  const { classes } = props;
+class SignIn extends Component {
+  constructor(props) {
+    super(props);
+    this.state ={
 
-  return (
-    <main className={classes.main}>
-      <CssBaseline />
-      <Paper className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign in
-        </Typography>
-        <form className={classes.form}>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="email">Email Address</InputLabel>
-            <Input id="email" name="email" autoComplete="email" autoFocus />
-          </FormControl>
-          <FormControl margin="normal" required fullWidth>
-            <InputLabel htmlFor="password">Password</InputLabel>
-            <Input name="password" type="password" id="password" autoComplete="current-password" />
-          </FormControl>
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            component={Link} to ="./lobby"
-            color="primary"
-            className={classes.submit}
-          >
+    }
+}
+  render(){
+    const classes = this.props.classes;
+    return (
+      <main className={classes.main}>
+        <CssBaseline />
+        <Paper className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <LockIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
             Sign in
-          </Button>
-          <p>No account? <Link to="./lobby">Register here!</Link></p>
-        </form>
-      </Paper>
-    </main>
-  );
+          </Typography>
+          <form className={classes.form}>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="email">Email Address</InputLabel>
+              <Input id="email" name="email" autoComplete="email" autoFocus />
+            </FormControl>
+            <FormControl margin="normal" required fullWidth>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input name="password" type="password" id="password" autoComplete="current-password" />
+            </FormControl>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              component={Link} to ="./lobby"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign in
+            </Button>
+            <p>No account? <Link to="./lobby">Register here!</Link></p>
+          </form>
+        </Paper>
+      </main>
+    );
+  }
 }
 
 SignIn.propTypes = {

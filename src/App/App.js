@@ -3,6 +3,10 @@ import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Auth from './pages/Auth';
 import Lobby from './pages/Lobby';
+//redux
+import {Provider} from 'react-redux';
+import store from './redux/store';
+//import {createStore, applyMiddleware} from 'redux';
 
 class App extends Component {
   render() {
@@ -15,9 +19,11 @@ class App extends Component {
       </div>
     )
     return (
-      <Switch>
-        <App/>
-      </Switch>
+      <Provider store={store}>
+        <Switch>
+          <App/>
+        </Switch>
+      </Provider>
     );
   }
 }

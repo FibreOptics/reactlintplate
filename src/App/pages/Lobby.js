@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TopNavBar from '../../Components/TopNavbar';
-import Home from '../../Components/Home';
+//import Home from '../../Components/Home';
 
 
 import PropTypes from 'prop-types';
@@ -18,7 +18,8 @@ class Lobby extends Component {
     return (
       <div className="App">
         <TopNavBar/>
-        <Home/>
+        {//<Home/>
+        }
         <h1>List of Items</h1>
         {list.length ? (
           <div>{list.map((item) => {
